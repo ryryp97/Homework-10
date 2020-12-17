@@ -6,9 +6,9 @@ This repository contains a CLI (command-line interface) application that will pr
 
 ### Usage
 
-This is an example of what the generated HTML page will look like:
+This is an example of what the generated HTML page will look like (Clicking on the image will take you to a YouTube video demonstrating how to use the app):
 
-![Employees](./images/employees.png)
+![Employees](./images/employees.png)(http://www.youtube.com/watch?v=b6ajRW-giAg "Team Page")
 
 
 ### Credits
