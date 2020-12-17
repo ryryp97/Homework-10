@@ -28,8 +28,11 @@ const mainInquirer = function () {
                 // mainInquirer();
             } else if (response.employeeType === "Engineer") {
                 console.log(response.employeeType);
+                engineerInquirer();
+                // mainInquirer();
             } else if (response.employeeType === "Intern") {
                 console.log(response.employeeType);
+                // mainInquirer();
             } else if (response.employeeType === "Done adding employees") {
                 console.log("Now we can render the html!");
             }
@@ -37,6 +40,35 @@ const mainInquirer = function () {
 };
 
 mainInquirer();
+
+const engineerInquirer = function () {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                message: 'What is your name?',
+                name: 'name',
+            },
+            {
+                type: 'input',
+                message: 'What is your id number',
+                name: 'id',
+            },
+            {
+                type: 'input',
+                message: 'What is your email',
+                name: 'email',
+            },
+            {
+                type: 'input',
+                message: 'What is your GitHub username?',
+                name: 'github',
+            }
+        ])
+        .then((response) => {
+            console.log(new Engineer(response.name, response.id, response.email, response.github));
+        });
+};
 
 const managerInquirer = function () {
     inquirer
