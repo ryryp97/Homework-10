@@ -21,25 +21,51 @@ const mainInquirer = function () {
                 choices: ['Manager', 'Engineer', 'Intern', 'Done adding employees'],
             }
         ])
-    .then((response) => {
-        if (response.employeeType === "Manager") {
-            console.log(response.employeeType);
-        } else if (response.employeeType === "Engineer") {
-            console.log(response.employeeType);
-        } else if (response.employeeType === "Intern") {
-            console.log(response.employeeType);
-        } else if (response.employeeType === "Done adding employees") {
-            console.log("Now we can render the html!");
-        }
-    });
+        .then((response) => {
+            if (response.employeeType === "Manager") {
+                console.log(response.employeeType);
+                managerInquirer();
+                // mainInquirer();
+            } else if (response.employeeType === "Engineer") {
+                console.log(response.employeeType);
+            } else if (response.employeeType === "Intern") {
+                console.log(response.employeeType);
+            } else if (response.employeeType === "Done adding employees") {
+                console.log("Now we can render the html!");
+            }
+        });
 };
 
 mainInquirer();
 
-// const managerInquirer = function () {
-//     inquirer
-//         .prompt()
-// }
+const managerInquirer = function () {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                message: 'What is your name?',
+                name: 'name',
+            },
+            {
+                type: 'input',
+                message: 'What is your id number',
+                name: 'id',
+            },
+            {
+                type: 'input',
+                message: 'What is your email',
+                name: 'email',
+            },
+            {
+                type: 'input',
+                message: 'What is your office number?',
+                name: 'officenum',
+            }
+        ])
+        .then((response) => {
+            console.log(new Manager(response.name, response.id, response.email, response.officenum));
+        });
+};
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
