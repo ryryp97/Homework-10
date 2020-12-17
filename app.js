@@ -34,7 +34,9 @@ const mainInquirer = function () {
                 internInquirer();
             } else if (response.employeeType === "Done adding employees") {
                 console.log("Now we can render the html!");
-                console.log(employees);
+                
+                fs.writeFile(outputPath, render(employees), (err) =>
+                err ? console.error(err) : console.log('Success!'));
             }
         });
 };
