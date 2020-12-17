@@ -10,6 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const employees = [];
 
 const mainInquirer = function () {
     inquirer
@@ -25,17 +26,15 @@ const mainInquirer = function () {
             if (response.employeeType === "Manager") {
                 console.log(response.employeeType);
                 managerInquirer();
-                // mainInquirer();
             } else if (response.employeeType === "Engineer") {
                 console.log(response.employeeType);
                 engineerInquirer();
-                // mainInquirer();
             } else if (response.employeeType === "Intern") {
                 console.log(response.employeeType);
                 internInquirer();
-                // mainInquirer();
             } else if (response.employeeType === "Done adding employees") {
                 console.log("Now we can render the html!");
+                console.log(employees);
             }
         });
 };
@@ -67,7 +66,8 @@ const engineerInquirer = function () {
             }
         ])
         .then((response) => {
-            console.log(new Engineer(response.name, response.id, response.email, response.github));
+            employees.push(new Engineer(response.name, response.id, response.email, response.github));
+            mainInquirer();
         });
 };
 
@@ -96,7 +96,8 @@ const managerInquirer = function () {
             }
         ])
         .then((response) => {
-            console.log(new Manager(response.name, response.id, response.email, response.officenum));
+            employees.push(new Manager(response.name, response.id, response.email, response.officenum));
+            mainInquirer();
         });
 };
 
@@ -125,7 +126,8 @@ const internInquirer = function () {
             }
         ])
         .then((response) => {
-            console.log(new Intern(response.name, response.id, response.email, response.school));
+            employees.push(new Intern(response.name, response.id, response.email, response.school));
+            mainInquirer();
         });
 };
 
