@@ -2,11 +2,11 @@
 
 ### Description 
 
-This repository contains a CLI (command-line interface) application that will prompt the user for inputs (via the Inquirer package) and generate an HTML page with the relevant information
+This repository contains a CLI (command-line interface) application that will prompt the user for inputs (via the Inquirer package) and generate an HTML page with the relevant information.
 
 ### Usage
 
-This is an example of what the generated HTML page will look like (Clicking on the image will take you to a YouTube video demonstrating how to use the app):
+This is an example of what the generated HTML page will look like (Clicking on the link will take you to a YouTube video demonstrating how to use the app):
 
 ![Employees](./images/employees.png)(http://www.youtube.com/watch?v=b6ajRW-giAg "Team Page")
 
