@@ -32,6 +32,7 @@ const mainInquirer = function () {
                 // mainInquirer();
             } else if (response.employeeType === "Intern") {
                 console.log(response.employeeType);
+                internInquirer();
                 // mainInquirer();
             } else if (response.employeeType === "Done adding employees") {
                 console.log("Now we can render the html!");
@@ -96,6 +97,35 @@ const managerInquirer = function () {
         ])
         .then((response) => {
             console.log(new Manager(response.name, response.id, response.email, response.officenum));
+        });
+};
+
+const internInquirer = function () {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                message: 'What is your name?',
+                name: 'name',
+            },
+            {
+                type: 'input',
+                message: 'What is your id number',
+                name: 'id',
+            },
+            {
+                type: 'input',
+                message: 'What is your email',
+                name: 'email',
+            },
+            {
+                type: 'input',
+                message: 'Which school do you attend?',
+                name: 'school',
+            }
+        ])
+        .then((response) => {
+            console.log(new Intern(response.name, response.id, response.email, response.school));
         });
 };
 
