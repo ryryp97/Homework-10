@@ -18,11 +18,19 @@ const mainInquirer = function () {
                 type: 'list',
                 message: 'Which type of Employee is being entered?',
                 name: 'employeeType',
-                choices: ['Manager', 'Engineer', 'Intern'],
+                choices: ['Manager', 'Engineer', 'Intern', 'Done adding employees'],
             }
         ])
     .then((response) => {
-        console.log(response.employeeType);
+        if (response.employeeType === "Manager") {
+            console.log(response.employeeType);
+        } else if (response.employeeType === "Engineer") {
+            console.log(response.employeeType);
+        } else if (response.employeeType === "Intern") {
+            console.log(response.employeeType);
+        } else if (response.employeeType === "Done adding employees") {
+            console.log("Now we can render the html!");
+        }
     });
 };
 
